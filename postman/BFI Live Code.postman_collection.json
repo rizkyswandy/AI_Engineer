@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "aacbf5ce-3a49-4af1-a42c-a43668021910",
+		"name": "BFI Live Code",
+		"description": "Collection of API endpoints for content moderation and document intelligence services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "36534898"
+	},
+	"item": [
+		{
+			"name": "Content Moderation Service",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8000/",
+						"description": "Check if the content moderation service is running"
+					},
+					"response": []
+				},
+				{
+					"name": "Moderate Text",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"That award was rigged. The winner is an overrated hack.\"\n}"
+						},
+						"url": "http://localhost:8000/moderate",
+						"description": "Analyze text for toxicity and classify its topic"
+					},
+					"response": []
+				},
+				{
+					"name": "Moderate Political Text",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"The government's new policy on climate change is a complete joke. The politicians are all corrupt liars.\"\n}"
+						},
+						"url": "http://localhost:8000/moderate",
+						"description": "Example of political text that may be toxic"
+					},
+					"response": []
+				},
+				{
+					"name": "Moderate Tech Text",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"The new smartphone features a 6.7-inch OLED display, A16 bionic chip, and improved camera system with 48MP main sensor.\"\n}"
+						},
+						"url": "http://localhost:8000/moderate",
+						"description": "Example of non-toxic technology text"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for the content moderation service"
+		},
+		{
+			"name": "Document Intelligence Service",
+			"item": [
+				{
+					"name": "Root Endpoint",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8000/",
+						"description": "Check if the document intelligence service is running"
+					},
+					"response": []
+				},
+				{
+					"name": "Analyze Document",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "postman-cloud:///1f019f64-92e3-46a0-9e81-2a8b1b669c69"
+								}
+							]
+						},
+						"url": "http://localhost:8000/analyze",
+						"description": "Upload and analyze a document image"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for the document intelligence service"
+		}
+	]
+}
